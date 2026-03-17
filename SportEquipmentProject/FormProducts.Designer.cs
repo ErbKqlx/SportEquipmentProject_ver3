@@ -28,22 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             flowLayoutPanelTop = new FlowLayoutPanel();
             btnLogout = new Button();
             lblUsername = new Label();
+            flowLayoutPanelButtons = new FlowLayoutPanel();
+            btnGetOrders = new Button();
+            dgvProducts = new DataGridView();
+            panelTop = new Panel();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
             flowLayoutPanelTop.SuspendLayout();
+            flowLayoutPanelButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            panelTop.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanelTop
             // 
+            flowLayoutPanelTop.BackColor = Color.Transparent;
             flowLayoutPanelTop.Controls.Add(btnLogout);
             flowLayoutPanelTop.Controls.Add(lblUsername);
-            flowLayoutPanelTop.Dock = DockStyle.Top;
+            flowLayoutPanelTop.Dock = DockStyle.Right;
             flowLayoutPanelTop.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanelTop.Location = new Point(14, 14);
-            flowLayoutPanelTop.Margin = new Padding(4);
+            flowLayoutPanelTop.Location = new Point(579, 0);
+            flowLayoutPanelTop.Margin = new Padding(0);
             flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            flowLayoutPanelTop.Size = new Size(1156, 66);
+            flowLayoutPanelTop.Size = new Size(585, 65);
             flowLayoutPanelTop.TabIndex = 0;
             // 
             // btnLogout
@@ -51,9 +63,9 @@
             btnLogout.BackColor = Color.FromArgb(67, 97, 238);
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Location = new Point(1027, 3);
+            btnLogout.Location = new Point(456, 3);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(126, 41);
+            btnLogout.Size = new Size(126, 57);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Выход";
             btnLogout.UseVisualStyleBackColor = false;
@@ -62,11 +74,106 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(970, 0);
+            lblUsername.Location = new Point(399, 0);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(51, 21);
             lblUsername.TabIndex = 1;
             lblUsername.Text = "ФИО";
+            // 
+            // flowLayoutPanelButtons
+            // 
+            flowLayoutPanelButtons.Controls.Add(btnGetOrders);
+            flowLayoutPanelButtons.Controls.Add(btnAdd);
+            flowLayoutPanelButtons.Controls.Add(btnEdit);
+            flowLayoutPanelButtons.Controls.Add(btnDelete);
+            flowLayoutPanelButtons.Dock = DockStyle.Left;
+            flowLayoutPanelButtons.Location = new Point(0, 0);
+            flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
+            flowLayoutPanelButtons.Size = new Size(576, 65);
+            flowLayoutPanelButtons.TabIndex = 2;
+            // 
+            // btnGetOrders
+            // 
+            btnGetOrders.BackColor = Color.FromArgb(67, 97, 238);
+            btnGetOrders.FlatAppearance.BorderSize = 0;
+            btnGetOrders.FlatStyle = FlatStyle.Flat;
+            btnGetOrders.Location = new Point(3, 3);
+            btnGetOrders.Name = "btnGetOrders";
+            btnGetOrders.Size = new Size(126, 59);
+            btnGetOrders.TabIndex = 1;
+            btnGetOrders.Text = "Заказы";
+            btnGetOrders.UseVisualStyleBackColor = false;
+            btnGetOrders.Click += BtnGetOrders_Click;
+            // 
+            // dgvProducts
+            // 
+            dgvProducts.BackgroundColor = Color.FromArgb(248, 249, 250);
+            dgvProducts.BorderStyle = BorderStyle.None;
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(67, 97, 238);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvProducts.Location = new Point(10, 75);
+            dgvProducts.MultiSelect = false;
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.ReadOnly = true;
+            dgvProducts.RowHeadersVisible = false;
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProducts.Size = new Size(1164, 676);
+            dgvProducts.TabIndex = 1;
+            // 
+            // panelTop
+            // 
+            panelTop.BackColor = Color.FromArgb(233, 245, 255);
+            panelTop.Controls.Add(flowLayoutPanelTop);
+            panelTop.Controls.Add(flowLayoutPanelButtons);
+            panelTop.Dock = DockStyle.Top;
+            panelTop.Location = new Point(10, 10);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new Size(1164, 65);
+            panelTop.TabIndex = 3;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.FromArgb(67, 97, 238);
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Location = new Point(135, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(126, 59);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Добавить";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.FromArgb(67, 97, 238);
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Location = new Point(267, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(150, 59);
+            btnEdit.TabIndex = 3;
+            btnEdit.Text = "Редактировать";
+            btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(67, 97, 238);
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Location = new Point(423, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(126, 59);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Удалить";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // FormProducts
             // 
@@ -74,15 +181,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1184, 761);
-            Controls.Add(flowLayoutPanelTop);
+            Controls.Add(panelTop);
+            Controls.Add(dgvProducts);
             Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(4);
             Name = "FormProducts";
-            Padding = new Padding(14);
+            Padding = new Padding(10);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Товары";
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
+            flowLayoutPanelButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            panelTop.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -91,5 +202,12 @@
         private FlowLayoutPanel flowLayoutPanelTop;
         private Button btnLogout;
         private Label lblUsername;
+        private DataGridView dgvProducts;
+        private FlowLayoutPanel flowLayoutPanelButtons;
+        private Button btnGetOrders;
+        private Panel panelTop;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
     }
 }
