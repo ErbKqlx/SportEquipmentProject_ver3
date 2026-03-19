@@ -130,7 +130,7 @@ namespace SportEquipmentProject
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(384, 361);
             Controls.Add(pnMain);
             Controls.Add(pbLogo);

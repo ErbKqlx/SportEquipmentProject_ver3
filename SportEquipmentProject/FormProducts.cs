@@ -26,6 +26,11 @@ namespace SportEquipmentProject
             CurrentUser = user;
             IsGuest = guest;
 
+            var colId = new DataGridViewTextBoxColumn();
+            colId.Name = "colId";
+            colId.Visible = false;
+            colId.ReadOnly = true;
+
             var colPhoto = new DataGridViewImageColumn();
             colPhoto.Name = "colPhoto";
             colPhoto.ImageLayout = DataGridViewImageCellLayout.Zoom;
@@ -45,13 +50,13 @@ namespace SportEquipmentProject
             //dgvProducts.Columns;
             dgvProducts.Columns.AddRange(
             [
-                colPhoto, colInfo, colDiscount
+                colId, colPhoto, colInfo, colDiscount
             ]);
 
             lblUsername.Text = IsGuest ? "Гость" : CurrentUser.FullName;
 
             //Циклом
-            foreach(Button button in flowLayoutPanelButtons.Controls)
+            foreach (Button button in flowLayoutPanelButtons.Controls)
             {
                 button.Visible = !IsGuest;
             }
@@ -84,6 +89,8 @@ namespace SportEquipmentProject
                     {
                         int rowIndex = dgvProducts.Rows.Add();
                         var row = dgvProducts.Rows[rowIndex];
+
+                        row.Cells["colId"].Value = product.Id;
 
                         row.Cells["colPhoto"].Value = Resources.picture;
 
@@ -133,7 +140,7 @@ namespace SportEquipmentProject
                  $"Цена: {priceText}" + Environment.NewLine +
                  $"Единица измерения: {product.IdUnitOfMeasurementNavigation.UnitName}" + Environment.NewLine +
                  $"Количество на складе: {product.Count}" + Environment.NewLine;
-                
+
         }
 
         private void ApplyRowStyles(DataGridViewRow row, Product product)
@@ -165,6 +172,18 @@ namespace SportEquipmentProject
         {
             var formOrders = new FormOrders();
             formOrders.ShowDialog();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            var formAddProduct = new FormAddProduct();
+            formAddProduct.ShowDialog();
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            var formAddProduct = new FormAddProduct((long)dgvProducts.CurrentRow.Cells[0].Value);
+            formAddProduct.ShowDialog();
         }
     }
 }
