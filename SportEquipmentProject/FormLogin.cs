@@ -10,6 +10,10 @@ namespace SportEquipmentProject
         public FormLogin()
         {
             InitializeComponent();
+
+            //Для удобства
+            txtLogin.Text = "admin@sport.ru";
+            txtPassword.Text = "qwerty123";
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
