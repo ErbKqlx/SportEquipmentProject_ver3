@@ -178,12 +178,22 @@ namespace SportEquipmentProject
         {
             var formAddProduct = new FormAddProduct();
             formAddProduct.ShowDialog();
+
+            if (formAddProduct.DialogResult == DialogResult.OK)
+            {
+                LoadProducts();
+            }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             var formAddProduct = new FormAddProduct((long)dgvProducts.CurrentRow.Cells[0].Value);
             formAddProduct.ShowDialog();
+
+            if (formAddProduct.DialogResult == DialogResult.OK)
+            {
+                LoadProducts();
+            }
         }
     }
 }
